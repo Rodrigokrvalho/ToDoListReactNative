@@ -3,6 +3,8 @@ import { Input } from "../components/Input";
 import { useState } from "react";
 import { colors } from "../globalstyles";
 import { ButtonAdd } from "../components/ButtonAdd";
+import { ButtonDelete } from "../components/ButtonDelete";
+import { CheckBox } from "../components/CheckBox";
 
 
 export function Main() {
@@ -20,7 +22,7 @@ export function Main() {
         />
         <ButtonAdd />
       </View>
-      <Text> aqui{task}</Text>
+      <CheckBox status="active" />
     </>
   );
 }
