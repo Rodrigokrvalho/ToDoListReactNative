@@ -1,7 +1,7 @@
 import { Text, TouchableOpacity, TouchableOpacityProps } from "react-native";
 import { styles } from "./styles";
 import ReactIcons from '@expo/vector-icons/AntDesign';
-import { colors } from "../../globalstyles";
+import { colors } from "../../../globalstyles";
 
 interface Props extends TouchableOpacityProps {}
 
