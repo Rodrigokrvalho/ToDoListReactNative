@@ -1,12 +1,18 @@
-import { View, FlatList } from "react-native";
-import { Input } from "../components/atoms/Input";
 import { useState } from "react";
-import { colors } from "../globalstyles";
-import { ButtonAdd } from "../components/atoms/ButtonAdd";
 import { Task } from "../components/molecules/Task";
 import { AddTask } from "../components/molecules/AddTask";
+import { MainCounters } from "../components/molecules/MainCounters";
+import { MainHeader } from "../components/atoms/MainHeader";
+import { TasksList } from "../components/molecules/TasksList";
 
-const tasks = [
+
+export interface Task {
+  id: string;
+  description: string;
+  completed: boolean;
+}
+
+const tasks: Task[] = [
   {
     id: '1',
     completed: false,
@@ -34,20 +40,19 @@ export function Main() {
 
   return (
     <>
+      <MainHeader />
+
       <AddTask
         taskDescription={task}
         setTaskDescription={setTask}
       />
-      <FlatList
-        data={tasks}
-        keyExtractor={task => task.id}
-        renderItem={({ item }) => (
-          <Task
-            description={item.description}
-            completed={item.completed}
-          />
-        )}
+
+      <MainCounters
+        completedTasksValue={1}
+        createdTasksValue={4}
       />
+
+      <TasksList tasks={tasks} />
     </>
   );
 }
